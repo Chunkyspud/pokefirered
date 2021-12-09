@@ -1,12 +1,16 @@
 EventScript_PkmnCenterNurse:: @ 81A6578
 	goto_if_questlog EventScript_ReleaseEnd
-	message Text_WelcomeWantToHealPkmn
+	special HealPlayerParty
+	message Text_RestoredPkmnToFullHealth
 	waitmessage
-	multichoice 19, 8, MULTICHOICE_YES_NO, FALSE | (TRUE << 1)
-	switch VAR_RESULT
-	case 0, EventScript_PkmnCenterNurse_HealPkmn
-	case 1 EventScript_PkmnCenterNurse_Goodbye
-	case SCR_MENU_CANCEL, EventScript_PkmnCenterNurse_Goodbye
+	goto EventScript_PkmnCenterNurse_PlayerTurn
+	; message Text_WelcomeWantToHealPkmn
+	; waitmessage
+	; multichoice 19, 8, MULTICHOICE_YES_NO, FALSE | (TRUE << 1)
+	; switch VAR_RESULT
+	; case 0, EventScript_PkmnCenterNurse_HealPkmn
+	; case 1 EventScript_PkmnCenterNurse_Goodbye
+	; case SCR_MENU_CANCEL, EventScript_PkmnCenterNurse_Goodbye
 	end
 
 EventScript_PkmnCenterNurse_HealPkmn:: @ 81A65B8
@@ -67,3 +71,9 @@ Movement_Bow:: @ 81A666C
 	nurse_joy_bow
 	delay_4
 	step_end
+
+EventScript_PkmnCenterNurse_PlayerTurn::
+	applymovement OBJ_EVENT_ID_PLAYER, Movement_FaceDown
+	waitmovement 0
+	release
+	end
