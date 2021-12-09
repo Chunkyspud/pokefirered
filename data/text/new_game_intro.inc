@@ -159,9 +159,9 @@ gOakText_AskPlayerGender:: @ 81C59D5
     .string "Or are you a girl?$"
 
 gNewGameAdventureIntro1::
-    .string "This is my first change to test\n"
-    .string "if i did this thing right\n"
-    .string "hopefully it worked. :)\n"
+    .string "In the world which you are about to\n"
+    .string "enter, you will embark on a grand\n"
+    .string "adventure with you as the hero\n"
     .string "\n"
     .string "Speak to people and check things\n"
     .string "wherever you go, be it towns, roads,\n"
