@@ -76,16 +76,8 @@ Movement_Bow:: @ 81A666C
 	delay_4
 	step_end
 
-<<<<<<< HEAD
-
-=======
->>>>>>> move-name-effectiveness
 EventScript_PkmnCenterNurse_PlayerTurn::
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_FaceDown
 	waitmovement 0
 	release
-<<<<<<< HEAD
 	end
-=======
-	end
->>>>>>> move-name-effectiveness
