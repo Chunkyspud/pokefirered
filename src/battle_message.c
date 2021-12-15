@@ -37,8 +37,6 @@ struct BattleWindowText
 static EWRAM_DATA u8 sBattlerAbilities[MAX_BATTLERS_COUNT] = {};
 static EWRAM_DATA struct BattleMsgData *sBattleMsgDataPtr = NULL;
 
-static void ChooseMoveUsedParticle(u8 *textPtr);
-static void ChooseTypeOfMoveUsedString(u8 *textPtr);
 static void ExpandBattleTextBuffPlaceholders(const u8 *src, u8 *dst);
 
 static const u8 sText_Empty1[] = _("");
@@ -417,7 +415,7 @@ static const u8 sText_FoePkmnPrefix3[] = _("Foe");
 static const u8 sText_AllyPkmnPrefix2[] = _("Ally");
 static const u8 sText_FoePkmnPrefix4[] = _("Foe");
 static const u8 sText_AllyPkmnPrefix3[] = _("Ally");
-static const u8 sText_AttackerUsedX[] = _("{B_ATK_NAME_WITH_PREFIX} used\n{B_BUFF2}");
+static const u8 sText_AttackerUsedX[] = _("{B_ATK_NAME_WITH_PREFIX} used\n{B_BUFF2}!");
 static const u8 sText_ExclamationMark[] = _("!");
 static const u8 sText_ExclamationMark2[] = _("!");
 static const u8 sText_ExclamationMark3[] = _("!");
@@ -1227,7 +1225,7 @@ const u8 gText_BattleMenu[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW 13 14 15}FIG
 const u8 gUnknown_83FE747[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW 13 14 15}BALL{CLEAR_TO 56}BAIT\nROCK{CLEAR_TO 56}RUN");
 const u8 gText_MoveInterfacePP[] = _("PP ");
 const u8 gText_MoveInterfaceType[] = _("TYPE/");
-const u8 gUnknown_83FE770[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW 13 14 15}");
+const u8 gUnknown_83FE770[] = _("");
 const u8 gUnknown_83FE779[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW 13 14 15}どの わざを\nわすれさせたい?");
 const u8 gText_BattleYesNoChoice[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW 13 14 15}Yes\nNo");
 const u8 gText_BattleSwitchWhich[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW 13 14 15}Switch\nwhich?");
@@ -1333,130 +1331,6 @@ static const u8 *const sATypeMove_Table[] = {
     gUnknown_83FE95C,
     gUnknown_83FE968,
     gUnknown_83FE976
-};
-
-static const u16 sGrammarMoveUsedTable[] = {
-    MOVE_SWORDS_DANCE,
-    MOVE_STRENGTH,
-    MOVE_GROWTH,
-    MOVE_HARDEN,
-    MOVE_MINIMIZE,
-    MOVE_SMOKESCREEN,
-    MOVE_WITHDRAW,
-    MOVE_DEFENSE_CURL,
-    MOVE_EGG_BOMB,
-    MOVE_SMOG,
-    MOVE_BONE_CLUB,
-    MOVE_FLASH,
-    MOVE_SPLASH,
-    MOVE_ACID_ARMOR,
-    MOVE_BONEMERANG,
-    MOVE_REST,
-    MOVE_SHARPEN,
-    MOVE_SUBSTITUTE,
-    MOVE_MIND_READER,
-    MOVE_SNORE,
-    MOVE_PROTECT,
-    MOVE_SPIKES,
-    MOVE_ENDURE,
-    MOVE_ROLLOUT,
-    MOVE_SWAGGER,
-    MOVE_SLEEP_TALK,
-    MOVE_HIDDEN_POWER,
-    MOVE_PSYCH_UP,
-    MOVE_EXTREME_SPEED,
-    MOVE_FOLLOW_ME,
-    MOVE_TRICK,
-    MOVE_ASSIST,
-    MOVE_INGRAIN,
-    MOVE_KNOCK_OFF,
-    MOVE_CAMOUFLAGE,
-    MOVE_ASTONISH,
-    MOVE_ODOR_SLEUTH,
-    MOVE_GRASS_WHISTLE,
-    MOVE_SHEER_COLD,
-    MOVE_MUDDY_WATER,
-    MOVE_IRON_DEFENSE,
-    MOVE_BOUNCE,
-    MOVE_NONE,
-
-    MOVE_TELEPORT,
-    MOVE_RECOVER,
-    MOVE_BIDE,
-    MOVE_AMNESIA,
-    MOVE_FLAIL,
-    MOVE_TAUNT,
-    MOVE_BULK_UP,
-    MOVE_NONE,
-
-    MOVE_MEDITATE,
-    MOVE_AGILITY,
-    MOVE_MIMIC,
-    MOVE_DOUBLE_TEAM,
-    MOVE_BARRAGE,
-    MOVE_TRANSFORM,
-    MOVE_STRUGGLE,
-    MOVE_SCARY_FACE,
-    MOVE_CHARGE,
-    MOVE_WISH,
-    MOVE_BRICK_BREAK,
-    MOVE_YAWN,
-    MOVE_FEATHER_DANCE,
-    MOVE_TEETER_DANCE,
-    MOVE_MUD_SPORT,
-    MOVE_FAKE_TEARS,
-    MOVE_WATER_SPORT,
-    MOVE_CALM_MIND,
-    MOVE_NONE,
-
-    MOVE_POUND,
-    MOVE_SCRATCH,
-    MOVE_VICE_GRIP,
-    MOVE_WING_ATTACK,
-    MOVE_FLY,
-    MOVE_BIND,
-    MOVE_SLAM,
-    MOVE_HORN_ATTACK,
-    MOVE_WRAP,
-    MOVE_THRASH,
-    MOVE_TAIL_WHIP,
-    MOVE_LEER,
-    MOVE_BITE,
-    MOVE_GROWL,
-    MOVE_ROAR,
-    MOVE_SING,
-    MOVE_PECK,
-    MOVE_ABSORB,
-    MOVE_STRING_SHOT,
-    MOVE_EARTHQUAKE,
-    MOVE_FISSURE,
-    MOVE_DIG,
-    MOVE_TOXIC,
-    MOVE_SCREECH,
-    MOVE_METRONOME,
-    MOVE_LICK,
-    MOVE_CLAMP,
-    MOVE_CONSTRICT,
-    MOVE_POISON_GAS,
-    MOVE_BUBBLE,
-    MOVE_SLASH,
-    MOVE_SPIDER_WEB,
-    MOVE_NIGHTMARE,
-    MOVE_CURSE,
-    MOVE_FORESIGHT,
-    MOVE_CHARM,
-    MOVE_ATTRACT,
-    MOVE_ROCK_SMASH,
-    MOVE_UPROAR,
-    MOVE_SPIT_UP,
-    MOVE_SWALLOW,
-    MOVE_TORMENT,
-    MOVE_FLATTER,
-    MOVE_ROLE_PLAY,
-    MOVE_ENDEAVOR,
-    MOVE_TICKLE,
-    MOVE_COVET,
-    MOVE_NONE
 };
 
 // code
@@ -1622,14 +1496,11 @@ void BufferStringBattle(u16 stringId)
         }
         break;
     case STRINGID_USEDMOVE: // pokemon used a move msg
-        ChooseMoveUsedParticle(gBattleTextBuff1); // buff1 doesn't appear in the string, leftover from japanese move names
-
         if (sBattleMsgDataPtr->currentMove >= MOVES_COUNT)
             StringCopy(gBattleTextBuff2, sATypeMove_Table[*(&gBattleStruct->stringMoveType)]);
         else
             StringCopy(gBattleTextBuff2, gMoveNames[sBattleMsgDataPtr->currentMove]);
 
-        ChooseTypeOfMoveUsedString(gBattleTextBuff2);
         stringPtr = sText_AttackerUsedX;
         break;
     case STRINGID_BATTLEEND: // battle end
@@ -2273,27 +2144,6 @@ static void ExpandBattleTextBuffPlaceholders(const u8 *src, u8 *dst)
 // unused, since the value loaded into the buffer is not read; it loaded one of
 // two particles (either "は" or "の") which works in tandem with ChooseTypeOfMoveUsedString
 // below to effect changes in the meaning of the line.
-static void ChooseMoveUsedParticle(u8* textBuff)
-{
-    s32 counter = 0;
-    u32 i = 0;
-
-    while (counter != MAX_MON_MOVES)
-    {
-        if (sGrammarMoveUsedTable[i] == 0)
-            counter++;
-        if (sGrammarMoveUsedTable[i++] == sBattleMsgDataPtr->currentMove)
-            break;
-    }
-
-    if (counter >= 0)
-    {
-        if (counter <= 2)
-            StringCopy(textBuff, sText_SpaceIs); // is
-        else if (counter <= MAX_MON_MOVES)
-            StringCopy(textBuff, sText_ApostropheS); // 's
-    }
-}
 
 // Appends "!" to the text buffer `dst`. In the original Japanese this looked
 // into the table of moves at sGrammarMoveUsedTable and varied the line accordingly.
@@ -2313,68 +2163,35 @@ static void ChooseMoveUsedParticle(u8* textBuff)
 //
 // sText_ExclamationMark5 was " こうげき！" This resulted in a translation of
 // "<NAME>'s <ATTACK> attack!".
-static void ChooseTypeOfMoveUsedString(u8* dst)
-{
-    s32 counter = 0;
-    s32 i = 0;
-
-    while (*dst != EOS)
-        dst++;
-
-    while (counter != MAX_MON_MOVES)
-    {
-        if (sGrammarMoveUsedTable[i] == MOVE_NONE)
-            counter++;
-        if (sGrammarMoveUsedTable[i++] == sBattleMsgDataPtr->currentMove)
-            break;
-    }
-
-    switch (counter)
-    {
-    case 0:
-        StringCopy(dst, sText_ExclamationMark);
-        break;
-    case 1:
-        StringCopy(dst, sText_ExclamationMark2);
-        break;
-    case 2:
-        StringCopy(dst, sText_ExclamationMark3);
-        break;
-    case 3:
-        StringCopy(dst, sText_ExclamationMark4);
-        break;
-    case 4:
-        StringCopy(dst, sText_ExclamationMark5);
-        break;
-    }
-}
 
 static const struct BattleWindowText sTextOnWindowsInfo_Normal[] = {
-    {PIXEL_FILL(0xf), 2, 0x02, 2, 0, 2, 1, 0x1, 0xf, 0x6},
-    {PIXEL_FILL(0xf), 2, 0x02, 2, 0, 2, 0, 0x1, 0xf, 0x6},
-    {PIXEL_FILL(0xe), 1, 0x00, 2, 0, 2, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 0, 0x00, 2, 0, 0, 0, 0xc, 0xe, 0xb},
-    {PIXEL_FILL(0xe), 0, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 1, 0x0a, 2, 0, 2, 0, 0xc, 0xe, 0xb},
-    {PIXEL_FILL(0xe), 1, 0x00, 2, 0, 2, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 1, 0x00, 2, 0, 2, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 2, 0x00, 0, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0x0), 0, 0x20, 0, 0, 0, 0, 0x1, 0x0, 0x2},
-    {PIXEL_FILL(0xe), 2, 0x00, 2, 1, 2, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0x0), 2, 0x00, 2, 0, 0, 0, 0x1, 0x0, 0x6},
-    {PIXEL_FILL(0x0), 2, 0x00, 2, 0, 0, 0, 0x1, 0x0, 0x6},
-    {PIXEL_FILL(0x0), 2, 0x00, 2, 0, 0, 0, 0x1, 0x0, 0x6},
-    {PIXEL_FILL(0x1), 4, 0x00, 1, 0, 1, 1, 0x2, 0x1, 0x3}
+    {PIXEL_FILL(0xf), 2, 0x02, 2, 0, 2, 1, 0x1, 0xf, 0x6}, //0
+    {PIXEL_FILL(0xf), 2, 0x02, 2, 0, 2, 0, 0x1, 0xf, 0x6}, //1
+    {PIXEL_FILL(0xe), 1, 0x00, 2, 0, 2, 0, 0xd, 0xe, 0xf}, //2
+    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0xd, 0xe, 0xf}, //3 move1
+    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0xd, 0xe, 0xf}, //4 move2
+    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0xd, 0xe, 0xf}, //5 move3
+    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0xd, 0xe, 0xf}, //6 move4
+    {PIXEL_FILL(0xe), 0, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf}, //7 pptext
+    {PIXEL_FILL(0xe), 0, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf}, //8 
+    {PIXEL_FILL(0xe), 1, 0x0a, 2, 0, 2, 0, 0xd, 0xe, 0xf}, //9
+    {PIXEL_FILL(0xe), 1, 0x00, 2, 0, 2, 0, 0xd, 0xe, 0xf}, //10
+    {PIXEL_FILL(0xe), 1, 0x00, 2, 0, 2, 0, 0xd, 0xe, 0xf}, //11
+    {PIXEL_FILL(0xe), 2, 0x00, 0, 0, 0, 0, 0xd, 0xe, 0xf}, //12
+    {PIXEL_FILL(0x0), 0, 0x20, 0, 0, 0, 0, 0x1, 0x0, 0x2}, //13
+    {PIXEL_FILL(0xe), 2, 0x00, 2, 1, 2, 0, 0xd, 0xe, 0xf}, //14
+    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf}, //15
+    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf}, //16
+    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf}, //17
+    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf}, //18
+    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf}, //19
+    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf}, //20
+    {PIXEL_FILL(0x0), 2, 0x00, 2, 0, 0, 0, 0x1, 0x0, 0x6}, //21
+    {PIXEL_FILL(0x0), 2, 0x00, 2, 0, 0, 0, 0x1, 0x0, 0x6}, //22
+    {PIXEL_FILL(0x0), 2, 0x00, 2, 0, 0, 0, 0x1, 0x0, 0x6}, //23
+    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0x1, 0xe, 0xb},//24 not very effective
+    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0x6, 0xe, 0x5},//25 super effective
+    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0xf, 0xe, 0xd},//26 no effect
 };
 
 const u8 gUnknown_83FEC90[] = {0x04, 0x05, 0x02, 0x02};
@@ -2428,6 +2245,84 @@ void BattlePutTextOnWindow(const u8 *text, u8 windowId) {
     printerTemplate.fgColor = sTextOnWindowsInfo_Normal[windowId].fgColor;
     printerTemplate.bgColor = sTextOnWindowsInfo_Normal[windowId].bgColor;
     printerTemplate.shadowColor = sTextOnWindowsInfo_Normal[windowId].shadowColor;
+    if (windowId == 24)
+        gTextFlags.useAlternateDownArrow = FALSE;
+    else
+        gTextFlags.useAlternateDownArrow = TRUE;
+
+    if ((gBattleTypeFlags & BATTLE_TYPE_LINK) || ((gBattleTypeFlags & BATTLE_TYPE_POKEDUDE) && windowId != 24))
+        gTextFlags.autoScroll = TRUE;
+    else
+        gTextFlags.autoScroll = FALSE;
+
+    if (windowId == 0 || windowId == 24)
+    {
+        if (gBattleTypeFlags & BATTLE_TYPE_LINK)
+            speed = 1;
+        else
+            speed = GetTextSpeedSetting();
+        gTextFlags.canABSpeedUpPrint = TRUE;
+    }
+    else
+    {
+        speed = sTextOnWindowsInfo_Normal[windowId].speed;
+        gTextFlags.canABSpeedUpPrint = FALSE;
+    }
+
+    AddTextPrinter(&printerTemplate, speed, NULL);
+    if (!(textFlags & 0x80))
+    {
+        PutWindowTilemap(windowId);
+        CopyWindowToVram(windowId, COPYWIN_BOTH);
+    }
+}
+
+void BattlePutTextOnWindowOffset(const u8 *text, u8 windowId, u8 offset) {
+    bool32 copyToVram;
+    struct TextPrinterTemplate printerTemplate;
+    u8 speed;
+    int x;
+    u8 context;
+
+    u8 textFlags = windowId & 0xC0;
+    windowId &= 0x3F;
+    if (!(textFlags & 0x80))
+        FillWindowPixelBuffer(windowId, sTextOnWindowsInfo_Normal[windowId].fillValue);
+    if (textFlags & 0x40) {
+        context = ContextNpcGetTextColor();
+        printerTemplate.fontId = gUnknown_83FEC90[context];
+    }
+    else {
+        printerTemplate.fontId = sTextOnWindowsInfo_Normal[windowId].fontId;
+    }
+    switch (windowId)
+    {
+    case 15 ... 20:
+        x = (48 - GetStringWidth(sTextOnWindowsInfo_Normal[windowId].fontId, text,
+                                 sTextOnWindowsInfo_Normal[windowId].letterSpacing)) / 2;
+        break;
+    case 21 ... 23:
+        x = (64 - GetStringWidth(sTextOnWindowsInfo_Normal[windowId].fontId, text,
+                                 sTextOnWindowsInfo_Normal[windowId].letterSpacing)) / 2;
+        break;
+    default:
+        x = sTextOnWindowsInfo_Normal[windowId].x;
+        break;
+    }
+    if (x < 0)
+        x = 0;
+    printerTemplate.currentChar = text;
+    printerTemplate.windowId = windowId;
+    printerTemplate.x = x;
+    printerTemplate.y = sTextOnWindowsInfo_Normal[windowId].y;
+    printerTemplate.currentX = printerTemplate.x;
+    printerTemplate.currentY = printerTemplate.y;
+    printerTemplate.letterSpacing = sTextOnWindowsInfo_Normal[windowId].letterSpacing;
+    printerTemplate.lineSpacing = sTextOnWindowsInfo_Normal[windowId].lineSpacing;
+    printerTemplate.unk = 0;
+    printerTemplate.fgColor = sTextOnWindowsInfo_Normal[offset].fgColor;
+    printerTemplate.bgColor = sTextOnWindowsInfo_Normal[offset].bgColor;
+    printerTemplate.shadowColor = sTextOnWindowsInfo_Normal[offset].shadowColor;
     if (windowId == 24)
         gTextFlags.useAlternateDownArrow = FALSE;
     else

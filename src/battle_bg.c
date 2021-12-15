@@ -139,8 +139,8 @@ const struct BgTemplate gBattleBgTemplates[4] = {
     }
 };
 
-static const struct WindowTemplate gUnknown_8248330[] = {
-    {
+static const struct WindowTemplate gStandardBattleWindowTemplates[] = {
+    { // 0 Standard Battle Message
         .bg = 0,
         .tilemapLeft = 1,
         .tilemapTop = 15,
@@ -148,7 +148,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 4,
         .paletteNum = 0,
         .baseBlock = 0x090
-    }, {
+    }, { // 1 "What will (pokemon) do?"
         .bg = 0,
         .tilemapLeft = 1,
         .tilemapTop = 35,
@@ -156,7 +156,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 4,
         .paletteNum = 0,
         .baseBlock = 0x1c0
-    }, {
+    }, { // 2 Fight/Pokemon/Bag/Run
         .bg = 0,
         .tilemapLeft = 17,
         .tilemapTop = 35,
@@ -164,7 +164,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 4,
         .paletteNum = 5,
         .baseBlock = 0x190
-    }, {
+    }, { // 3 Top Left Move
         .bg = 0,
         .tilemapLeft = 2,
         .tilemapTop = 55,
@@ -172,7 +172,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 2,
         .paletteNum = 5,
         .baseBlock = 0x300
-    }, {
+    }, { // 4 Top Right Move
         .bg = 0,
         .tilemapLeft = 11,
         .tilemapTop = 55,
@@ -180,7 +180,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 2,
         .paletteNum = 5,
         .baseBlock = 0x310
-    }, {
+    }, { // 5 Bottom Left Move
         .bg = 0,
         .tilemapLeft = 2,
         .tilemapTop = 57,
@@ -188,7 +188,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 2,
         .paletteNum = 5,
         .baseBlock = 0x320
-    }, {
+    }, { // 6 Bottom Right Move
         .bg = 0,
         .tilemapLeft = 11,
         .tilemapTop = 57,
@@ -196,7 +196,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 2,
         .paletteNum = 5,
         .baseBlock = 0x330
-    }, {
+    }, { // 7
         .bg = 0,
         .tilemapLeft = 21,
         .tilemapTop = 55,
@@ -204,7 +204,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 2,
         .paletteNum = 5,
         .baseBlock = 0x290
-    }, {
+    }, { // 8
         .bg = 0,
         .tilemapLeft = 21,
         .tilemapTop = 57,
@@ -212,7 +212,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 2,
         .paletteNum = 5,
         .baseBlock = 0x296
-    }, {
+    }, { // 9
         .bg = 0,
         .tilemapLeft = 24,
         .tilemapTop = 55,
@@ -220,7 +220,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 2,
         .paletteNum = 5,
         .baseBlock = 0x2a6
-    }, {
+    }, { // 10
         .bg = 0,
         .tilemapLeft = 25,
         .tilemapTop = 57,
@@ -228,7 +228,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 0,
         .paletteNum = 5,
         .baseBlock = 0x2b0
-    }, {
+    }, { // 11
         .bg = 0,
         .tilemapLeft = 21,
         .tilemapTop = 55,
@@ -236,7 +236,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 4,
         .paletteNum = 5,
         .baseBlock = 0x2b0
-    }, {
+    }, { // 12
         .bg = 1,
         .tilemapLeft = 19,
         .tilemapTop = 8,
@@ -244,7 +244,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 11,
         .paletteNum = 5,
         .baseBlock = 0x100
-    }, {
+    }, { // 13
         .bg = 2,
         .tilemapLeft = 18,
         .tilemapTop = 0,
@@ -252,7 +252,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 3,
         .paletteNum = 6,
         .baseBlock = 0x16e
-    }, {
+    }, { // 14
         .bg = 0,
         .tilemapLeft = 25,
         .tilemapTop = 9,
@@ -260,7 +260,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 4,
         .paletteNum = 5,
         .baseBlock = 0x100
-    }, {
+    }, { // 15
         .bg = 1,
         .tilemapLeft = 2,
         .tilemapTop = 3,
@@ -268,7 +268,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 2,
         .paletteNum = 5,
         .baseBlock = 0x020
-    }, {
+    }, { // 16
         .bg = 2,
         .tilemapLeft = 2,
         .tilemapTop = 3,
@@ -276,7 +276,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 2,
         .paletteNum = 5,
         .baseBlock = 0x040
-    }, {
+    }, { // 17
         .bg = 1,
         .tilemapLeft = 2,
         .tilemapTop = 2,
@@ -284,7 +284,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 2,
         .paletteNum = 5,
         .baseBlock = 0x020
-    }, {
+    }, { // 18
         .bg = 2,
         .tilemapLeft = 2,
         .tilemapTop = 2,
@@ -292,7 +292,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 2,
         .paletteNum = 5,
         .baseBlock = 0x040
-    }, {
+    }, { // 19
         .bg = 1,
         .tilemapLeft = 2,
         .tilemapTop = 6,
@@ -300,7 +300,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 2,
         .paletteNum = 5,
         .baseBlock = 0x060
-    }, {
+    }, { // 20
         .bg = 2,
         .tilemapLeft = 2,
         .tilemapTop = 6,
@@ -308,7 +308,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 2,
         .paletteNum = 5,
         .baseBlock = 0x080
-    }, {
+    }, { // 21
         .bg = 0,
         .tilemapLeft = 11,
         .tilemapTop = 2,
@@ -316,7 +316,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 2,
         .paletteNum = 0,
         .baseBlock = 0x0a0
-    }, {
+    }, { // 22
         .bg = 0,
         .tilemapLeft = 4,
         .tilemapTop = 2,
@@ -324,7 +324,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 2,
         .paletteNum = 0,
         .baseBlock = 0x0a0
-    }, {
+    }, { // 23
         .bg = 0,
         .tilemapLeft = 19,
         .tilemapTop = 2,
@@ -332,7 +332,7 @@ static const struct WindowTemplate gUnknown_8248330[] = {
         .height = 2,
         .paletteNum = 0,
         .baseBlock = 0x0b0
-    }, {
+    }, { // 24
         .bg = 0,
         .tilemapLeft = 2,
         .tilemapTop = 15,
@@ -647,7 +647,7 @@ void BattleInitBgsAndWindows(void)
 {
     ResetBgsAndClearDma3BusyFlags(FALSE);
     InitBgsFromTemplates(0, gBattleBgTemplates, NELEMS(gBattleBgTemplates));
-    InitWindows(gUnknown_8248330);
+    InitWindows(gStandardBattleWindowTemplates);
     DeactivateAllTextPrinters();
 }
 
@@ -665,11 +665,7 @@ void LoadBattleMenuWindowGfx(void)
 {
     TextWindow_SetUserSelectedFrame(2, 0x012, 0x10);
     TextWindow_SetUserSelectedFrame(2, 0x022, 0x10);
-    gPlttBufferUnfaded[0x5C] = RGB( 9,  9,  9);
-    gPlttBufferUnfaded[0x5D] = RGB( 9,  9,  9);
-    gPlttBufferUnfaded[0x5E] = RGB(31, 31, 31);
-    gPlttBufferUnfaded[0x5F] = RGB( 26,  26,  25);
-    CpuCopy16(&gPlttBufferUnfaded[0x5C], &gPlttBufferFaded[0x5C], 8);
+    LoadCompressedPalette(gBattleWindowTextPalette, 0x50, 0x20);
     if (gBattleTypeFlags & (BATTLE_TYPE_FIRST_BATTLE | BATTLE_TYPE_POKEDUDE))
     {
         Menu_LoadStdPalAt(0x70);

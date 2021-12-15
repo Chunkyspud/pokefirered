@@ -11,7 +11,11 @@ EventScript_PkmnCenterNurse:: @ 81A6578
 	; case 0, EventScript_PkmnCenterNurse_HealPkmn
 	; case 1 EventScript_PkmnCenterNurse_Goodbye
 	; case SCR_MENU_CANCEL, EventScript_PkmnCenterNurse_Goodbye
+<<<<<<< HEAD
 	; end
+=======
+	end
+>>>>>>> move-name-effectiveness
 
 EventScript_PkmnCenterNurse_HealPkmn:: @ 81A65B8
 	incrementgamestat GAME_STAT_USED_POKECENTER
@@ -72,9 +76,16 @@ Movement_Bow:: @ 81A666C
 	delay_4
 	step_end
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> move-name-effectiveness
 EventScript_PkmnCenterNurse_PlayerTurn::
 	applymovement OBJ_EVENT_ID_PLAYER, Movement_FaceDown
 	waitmovement 0
 	release
+<<<<<<< HEAD
 	end
+=======
+	end
+>>>>>>> move-name-effectiveness
