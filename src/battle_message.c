@@ -1225,7 +1225,7 @@ const u8 gText_BattleMenu[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW 13 14 15}FIG
 const u8 gUnknown_83FE747[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW 13 14 15}BALL{CLEAR_TO 56}BAIT\nROCK{CLEAR_TO 56}RUN");
 const u8 gText_MoveInterfacePP[] = _("PP ");
 const u8 gText_MoveInterfaceType[] = _("TYPE/");
-const u8 gUnknown_83FE770[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW 13 14 15}");
+const u8 gUnknown_83FE770[] = _("");
 const u8 gUnknown_83FE779[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW 13 14 15}どの わざを\nわすれさせたい?");
 const u8 gText_BattleYesNoChoice[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW 13 14 15}Yes\nNo");
 const u8 gText_BattleSwitchWhich[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW 13 14 15}Switch\nwhich?");
@@ -2165,31 +2165,33 @@ static void ExpandBattleTextBuffPlaceholders(const u8 *src, u8 *dst)
 // "<NAME>'s <ATTACK> attack!".
 
 static const struct BattleWindowText sTextOnWindowsInfo_Normal[] = {
-    {PIXEL_FILL(0xf), 2, 0x02, 2, 0, 2, 1, 0x1, 0xf, 0x6},
-    {PIXEL_FILL(0xf), 2, 0x02, 2, 0, 2, 0, 0x1, 0xf, 0x6},
-    {PIXEL_FILL(0xe), 1, 0x00, 2, 0, 2, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 0, 0x00, 2, 0, 0, 0, 0xc, 0xe, 0xb},
-    {PIXEL_FILL(0xe), 0, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 1, 0x0a, 2, 0, 2, 0, 0xc, 0xe, 0xb},
-    {PIXEL_FILL(0xe), 1, 0x00, 2, 0, 2, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 1, 0x00, 2, 0, 2, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 2, 0x00, 0, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0x0), 0, 0x20, 0, 0, 0, 0, 0x1, 0x0, 0x2},
-    {PIXEL_FILL(0xe), 2, 0x00, 2, 1, 2, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf},
-    {PIXEL_FILL(0x0), 2, 0x00, 2, 0, 0, 0, 0x1, 0x0, 0x6},
-    {PIXEL_FILL(0x0), 2, 0x00, 2, 0, 0, 0, 0x1, 0x0, 0x6},
-    {PIXEL_FILL(0x0), 2, 0x00, 2, 0, 0, 0, 0x1, 0x0, 0x6},
-    {PIXEL_FILL(0x1), 4, 0x00, 1, 0, 1, 1, 0x2, 0x1, 0x3}
+    {PIXEL_FILL(0xf), 2, 0x02, 2, 0, 2, 1, 0x1, 0xf, 0x6}, //0
+    {PIXEL_FILL(0xf), 2, 0x02, 2, 0, 2, 0, 0x1, 0xf, 0x6}, //1
+    {PIXEL_FILL(0xe), 1, 0x00, 2, 0, 2, 0, 0xd, 0xe, 0xf}, //2
+    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0xd, 0xe, 0xf}, //3 move1
+    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0xd, 0xe, 0xf}, //4 move2
+    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0xd, 0xe, 0xf}, //5 move3
+    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0xd, 0xe, 0xf}, //6 move4
+    {PIXEL_FILL(0xe), 0, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf}, //7 pptext
+    {PIXEL_FILL(0xe), 0, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf}, //8 
+    {PIXEL_FILL(0xe), 1, 0x0a, 2, 0, 2, 0, 0xd, 0xe, 0xf}, //9
+    {PIXEL_FILL(0xe), 1, 0x00, 2, 0, 2, 0, 0xd, 0xe, 0xf}, //10
+    {PIXEL_FILL(0xe), 1, 0x00, 2, 0, 2, 0, 0xd, 0xe, 0xf}, //11
+    {PIXEL_FILL(0xe), 2, 0x00, 0, 0, 0, 0, 0xd, 0xe, 0xf}, //12
+    {PIXEL_FILL(0x0), 0, 0x20, 0, 0, 0, 0, 0x1, 0x0, 0x2}, //13
+    {PIXEL_FILL(0xe), 2, 0x00, 2, 1, 2, 0, 0xd, 0xe, 0xf}, //14
+    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf}, //15
+    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf}, //16
+    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf}, //17
+    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf}, //18
+    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf}, //19
+    {PIXEL_FILL(0xe), 2, 0x00, 2, 0, 0, 0, 0xd, 0xe, 0xf}, //20
+    {PIXEL_FILL(0x0), 2, 0x00, 2, 0, 0, 0, 0x1, 0x0, 0x6}, //21
+    {PIXEL_FILL(0x0), 2, 0x00, 2, 0, 0, 0, 0x1, 0x0, 0x6}, //22
+    {PIXEL_FILL(0x0), 2, 0x00, 2, 0, 0, 0, 0x1, 0x0, 0x6}, //23
+    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0x1, 0xe, 0xb},//24 not very effective
+    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0x6, 0xe, 0x5},//25 super effective
+    {PIXEL_FILL(0xe), 0, 0x00, 1, 0, 0, 0, 0xf, 0xe, 0xd},//26 no effect
 };
 
 const u8 gUnknown_83FEC90[] = {0x04, 0x05, 0x02, 0x02};
@@ -2243,6 +2245,84 @@ void BattlePutTextOnWindow(const u8 *text, u8 windowId) {
     printerTemplate.fgColor = sTextOnWindowsInfo_Normal[windowId].fgColor;
     printerTemplate.bgColor = sTextOnWindowsInfo_Normal[windowId].bgColor;
     printerTemplate.shadowColor = sTextOnWindowsInfo_Normal[windowId].shadowColor;
+    if (windowId == 24)
+        gTextFlags.useAlternateDownArrow = FALSE;
+    else
+        gTextFlags.useAlternateDownArrow = TRUE;
+
+    if ((gBattleTypeFlags & BATTLE_TYPE_LINK) || ((gBattleTypeFlags & BATTLE_TYPE_POKEDUDE) && windowId != 24))
+        gTextFlags.autoScroll = TRUE;
+    else
+        gTextFlags.autoScroll = FALSE;
+
+    if (windowId == 0 || windowId == 24)
+    {
+        if (gBattleTypeFlags & BATTLE_TYPE_LINK)
+            speed = 1;
+        else
+            speed = GetTextSpeedSetting();
+        gTextFlags.canABSpeedUpPrint = TRUE;
+    }
+    else
+    {
+        speed = sTextOnWindowsInfo_Normal[windowId].speed;
+        gTextFlags.canABSpeedUpPrint = FALSE;
+    }
+
+    AddTextPrinter(&printerTemplate, speed, NULL);
+    if (!(textFlags & 0x80))
+    {
+        PutWindowTilemap(windowId);
+        CopyWindowToVram(windowId, COPYWIN_BOTH);
+    }
+}
+
+void BattlePutTextOnWindowOffset(const u8 *text, u8 windowId, u8 offset) {
+    bool32 copyToVram;
+    struct TextPrinterTemplate printerTemplate;
+    u8 speed;
+    int x;
+    u8 context;
+
+    u8 textFlags = windowId & 0xC0;
+    windowId &= 0x3F;
+    if (!(textFlags & 0x80))
+        FillWindowPixelBuffer(windowId, sTextOnWindowsInfo_Normal[windowId].fillValue);
+    if (textFlags & 0x40) {
+        context = ContextNpcGetTextColor();
+        printerTemplate.fontId = gUnknown_83FEC90[context];
+    }
+    else {
+        printerTemplate.fontId = sTextOnWindowsInfo_Normal[windowId].fontId;
+    }
+    switch (windowId)
+    {
+    case 15 ... 20:
+        x = (48 - GetStringWidth(sTextOnWindowsInfo_Normal[windowId].fontId, text,
+                                 sTextOnWindowsInfo_Normal[windowId].letterSpacing)) / 2;
+        break;
+    case 21 ... 23:
+        x = (64 - GetStringWidth(sTextOnWindowsInfo_Normal[windowId].fontId, text,
+                                 sTextOnWindowsInfo_Normal[windowId].letterSpacing)) / 2;
+        break;
+    default:
+        x = sTextOnWindowsInfo_Normal[windowId].x;
+        break;
+    }
+    if (x < 0)
+        x = 0;
+    printerTemplate.currentChar = text;
+    printerTemplate.windowId = windowId;
+    printerTemplate.x = x;
+    printerTemplate.y = sTextOnWindowsInfo_Normal[windowId].y;
+    printerTemplate.currentX = printerTemplate.x;
+    printerTemplate.currentY = printerTemplate.y;
+    printerTemplate.letterSpacing = sTextOnWindowsInfo_Normal[windowId].letterSpacing;
+    printerTemplate.lineSpacing = sTextOnWindowsInfo_Normal[windowId].lineSpacing;
+    printerTemplate.unk = 0;
+    printerTemplate.fgColor = sTextOnWindowsInfo_Normal[offset].fgColor;
+    printerTemplate.bgColor = sTextOnWindowsInfo_Normal[offset].bgColor;
+    printerTemplate.shadowColor = sTextOnWindowsInfo_Normal[offset].shadowColor;
     if (windowId == 24)
         gTextFlags.useAlternateDownArrow = FALSE;
     else

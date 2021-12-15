@@ -69,6 +69,9 @@
 // Converts a number from Q24.8 fixed-point format
 #define Q_24_8_TO_INT(n) ((s32)((n) >> 8))
 
+// Rounding value for Q4.12 fixed-point format
+#define Q_4_12_ROUND ((1) << (12 - 1))
+
 #define min(a, b) ((a) < (b) ? (a) : (b))
 #define max(a, b) ((a) >= (b) ? (a) : (b))
 
