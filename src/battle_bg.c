@@ -647,7 +647,7 @@ void BattleInitBgsAndWindows(void)
 {
     ResetBgsAndClearDma3BusyFlags(FALSE);
     InitBgsFromTemplates(0, gBattleBgTemplates, NELEMS(gBattleBgTemplates));
-    InitWindows(gUnknown_8248330);
+    InitWindows(gStandardBattleWindowTemplates);
     DeactivateAllTextPrinters();
 }
 
