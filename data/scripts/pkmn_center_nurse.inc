@@ -11,11 +11,7 @@ EventScript_PkmnCenterNurse:: @ 81A6578
 	; case 0, EventScript_PkmnCenterNurse_HealPkmn
 	; case 1 EventScript_PkmnCenterNurse_Goodbye
 	; case SCR_MENU_CANCEL, EventScript_PkmnCenterNurse_Goodbye
-<<<<<<< HEAD
-	; end
-=======
 	end
->>>>>>> move-name-effectiveness
 
 EventScript_PkmnCenterNurse_HealPkmn:: @ 81A65B8
 	incrementgamestat GAME_STAT_USED_POKECENTER
