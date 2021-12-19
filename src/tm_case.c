@@ -560,9 +560,9 @@ static void TMCase_ItemPrintFunc(u8 windowId, u32 itemId, u8 y)
     {
         if (!itemid_is_unique(BagGetItemIdByPocketPosition(POCKET_TM_CASE, itemId)))
         {
-            ConvertIntToDecimalStringN(gStringVar1, BagGetQuantityByPocketPosition(POCKET_TM_CASE, itemId), STR_CONV_MODE_RIGHT_ALIGN, 3);
-            StringExpandPlaceholders(gStringVar4, gText_TimesStrVar1);
-            AddTextPrinterParameterized_ColorByIndex(windowId, 0, gStringVar4, 0x7E, y, 0, 0, 0xFF, 1);
+            // ConvertIntToDecimalStringN(gStringVar1, BagGetQuantityByPocketPosition(POCKET_TM_CASE, itemId), STR_CONV_MODE_RIGHT_ALIGN, 3);
+            // StringExpandPlaceholders(gStringVar4, gText_TimesStrVar1);
+            // AddTextPrinterParameterized_ColorByIndex(windowId, 0, gStringVar4, 0x7E, y, 0, 0, 0xFF, 1);
         }
         else
         {
@@ -966,29 +966,29 @@ static void Task_SelectTMAction_FromSellMenu(u8 taskId)
 {
     s16 * data = gTasks[taskId].data;
 
-    if (itemid_get_market_price(gSpecialVar_ItemId) == 0)
-    {
+    // if (itemid_get_market_price(gSpecialVar_ItemId) == 0)
+    // {
         CopyItemName(gSpecialVar_ItemId, gStringVar1);
         StringExpandPlaceholders(gStringVar4, gText_OhNoICantBuyThat);
         TMCase_PrintMessageWithFollowupTask(taskId, GetDialogBoxFontId(), gStringVar4, Subtask_CloseContextMenuAndReturnToMain);
-    }
-    else
-    {
-        data[8] = 1;
-        if (data[2] == 1)
-        {
-            HandlePrintMoneyOnHand();
-            Task_AskConfirmSaleWithAmount(taskId);
-        }
-        else
-        {
-            if (data[2] > 99)
-                data[2] = 99;
-            CopyItemName(gSpecialVar_ItemId, gStringVar1);
-            StringExpandPlaceholders(gStringVar4, gText_HowManyWouldYouLikeToSell);
-            TMCase_PrintMessageWithFollowupTask(taskId, GetDialogBoxFontId(), gStringVar4, Task_InitQuantitySelectUI);
-        }
-    }
+    // }
+    // else
+    // {
+    //     data[8] = 1;
+    //     if (data[2] == 1)
+    //     {
+    //         HandlePrintMoneyOnHand();
+    //         Task_AskConfirmSaleWithAmount(taskId);
+    //     }
+    //     else
+    //     {
+    //         if (data[2] > 99)
+    //             data[2] = 99;
+    //         CopyItemName(gSpecialVar_ItemId, gStringVar1);
+    //         StringExpandPlaceholders(gStringVar4, gText_HowManyWouldYouLikeToSell);
+    //         TMCase_PrintMessageWithFollowupTask(taskId, GetDialogBoxFontId(), gStringVar4, Task_InitQuantitySelectUI);
+    //     }
+    // }
 }
 
 static void Task_AskConfirmSaleWithAmount(u8 taskId)
